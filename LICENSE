@@ -1,0 +1,61 @@
+Flint Studios Public License 1.0
+SPDX-License-Identifier: FSPL-1.0
+
+Copyright (c) 2026 Flint Studios
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+1. ATTRIBUTION: The above copyright notice and this license must be included
+   in all copies or substantial portions. You must provide visible attribution
+   to "Flint Studios" in documentation, UI, or distribution materials.
+
+2. TRADEMARKS: This license does not grant rights to use Flint Studios
+   trademarks except for plain-text factual attribution (e.g., "Based on
+   [Project] by Flint Studios"). No use of logos or implied endorsement.
+
+3. MODIFICATIONS: Modified versions must be clearly labeled as modified in
+   source, UI, and distribution, and must not be presented as official
+   releases.
+
+4. ACCEPTABLE USE: The Software must not be used to intentionally cause
+   physical harm, develop weapons systems, violate privacy rights, facilitate
+   exploitation or abuse, or commit unlawful acts.
+
+5. CONTRIBUTIONS: By contributing, you grant Flint Studios and recipients a
+   perpetual, worldwide, non-exclusive, royalty-free, sublicensable license
+   to use your contribution. Flint Studios may relicense contributions only
+   under OSI-approved open source licenses, not proprietary licenses.
+
+6. PATENTS: Contributors grant patent licenses for their contributions. If
+   you initiate patent litigation alleging infringement, your license
+   terminates immediately.
+
+7. TELEMETRY: Telemetry must be disabled by default. Distributions with
+   telemetry must provide opt-in controls, disclosure, and comply with
+   privacy laws.
+
+8. SOURCE CODE: Binary distributions must include source code, provide a
+   written offer to supply it, or link to an accessible repository.
+
+9. TERMINATION: Material breach (missing attribution, trademark misuse,
+   acceptable use violation, telemetry non-compliance, missing source)
+   results in 30-day cure period after notice. Uncured breaches terminate
+   the license. Sublicenses from breaching parties also terminate unless
+   sublicensees are compliant.
+
+10. GOVERNING LAW: This License is governed by the laws of India. Legal
+    actions must be brought in Indian courts, and parties consent to
+    jurisdiction therein.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

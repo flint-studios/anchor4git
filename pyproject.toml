@@ -1,0 +1,48 @@
+[build-system]
+requires = ["uv_build>=0.11.26,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "src"
+module-root = ""
+
+[project]
+name = "anchor4git"
+version = "0.1.0"
+description = "A highly-minimal workflow tool for small teams using Git."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Abhirup Hajra", email = "me@abhirup.co.in" },
+]
+maintainers = [
+    { name = "Flint Studios", email = "contact@fx0.qzz.io" },
+]
+
+keywords = ["anchor", "git", "workflow", "vcs", "anchor4git"]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "typer>=0.16",
+]
+
+[project.optional-dependencies]
+dev = []
+docs = []
+
+[project.scripts]
+anchor4git = "src:main"
+a4g = "src:main"
+
+[project.urls]
+Homepage = "https://github.com/flint-studios/anchor"
+Documentation = "https://github.com/flint-studios/anchor"
+Repository = "https://github.com/flint-studios/anchor"
+Issues = "https://github.com/flint-studios/anchor/issues"

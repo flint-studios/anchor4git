@@ -1,0 +1,81 @@
+# Anchor4Git
+
+[![License](https://img.shields.io/badge/license-FSPL-blue.svg)](LICENSE)
+![Static Badge](https://img.shields.io/badge/build-passing-darkcyan)
+
+A highly-minimal workflow tool for small teams (2–4 people) using Git. Anchor4Git wraps Git into a simple **Download → Edit → Upload** mental model so users never need to know Git commands.
+
+> [!WARNING]
+> Anchor4Git requires `git`. Please install it on your device.
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+
+
+## Features
+
+- **No Git knowledge required** — users never run Git commands directly.
+- **Workspace-first** — users edit files normally, anchor4git handles versioning.
+- **Auto-save before risky operations** — dirty workspaces are saved automatically.
+- **Force push model** — simplified for small, trusted teams.
+- **Conflicts handled in editor** — visual merge UX instead of CLI confusion.
+
+## Installation
+### For non-contributors:
+```bash
+pip install --extra-index-url=https://fx0.qzz.io/simple anchor4git
+```
+
+### For contributors:
+   ```bash
+   git clone https://github.com/flint-studios/anchor4git.git
+   cd anchor4git
+   pip install -r requirements.txt
+   python -m build
+   ```
+
+## Usage
+
+```
+a4g fetch       -  Download latest work from the remote
+a4g save        -  Save a snapshot of your workspace
+a4g upload      -  Publish your work to the remote
+a4g info        -  View project dashboard and history
+a4g goto        -  Navigate to a previous save
+a4g config      -  Open project configuration
+```
+
+All commands have short aliases (`f`, `s`, `u`, `i`, `g`, `c`).
+
+## Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add new feature"
+   ```
+4. Push your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Submit a pull request.
+
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
+
+## License
+
+This project is licensed under the FSPL-1.0 License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Typer](https://typer.tiangolo.com/) - build great CLIs. Easy to code. Based on Python type hints.
