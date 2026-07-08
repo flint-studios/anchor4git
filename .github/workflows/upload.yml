@@ -1,0 +1,97 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_target:
+        description: 'Publish Target'
+        required: true
+        type: choice
+        options:
+          - build-only
+          - testpypi
+          - pypi
+        default: testpypi
+
+      version:
+        description: 'Version (e.g. 1.3.0 or 1.3.0-rc.1)'
+        required: true
+        type: string
+
+      prerelease:
+        description: 'Mark as Pre-release'
+        required: false
+        type: boolean
+        default: false
+
+      draft:
+        description: 'Create as Draft'
+        required: false
+        type: boolean
+        default: true
+
+      create_github_release:
+        description: 'Create GitHub Release'
+        required: false
+        type: boolean
+        default: false
+
+      release_notes:
+        description: 'Custom release notes (Markdown)'
+        required: false
+        type: string
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.13"
+
+      - name: Update version in pyproject.toml
+        run: |
+          # Update version dynamically
+          uv version ${{ inputs.version }}
+
+      - name: Build package
+        run: uv build
+
+      - name: Validate with twine
+        run: |
+          pip install twine
+          twine check dist/*
+
+      - name: Publish
+        if: inputs.publish_target != 'build-only'
+        run: |
+          if [[ "${{ inputs.publish_target }}" == "testpypi" ]]; then
+            uv publish --publish-url https://test.pypi.org/legacy/
+          else
+            uv publish
+          fi
+
+      - name: Create GitHub Release
+        if: inputs.create_github_release == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ inputs.version }}
+          name: v${{ inputs.version }}
+          body: ${{ inputs.release_notes }}
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+          draft: ${{ inputs.draft }}
+          prerelease: ${{ inputs.prerelease }}
+          generate_release_notes: ${{ !inputs.release_notes }}
