@@ -1,5 +1,6 @@
 # Anchor4Git
 
+![version](https://img.shields.io/badge/version-0.1.1-orange)
 [![License](https://img.shields.io/badge/license-I0SL-blue.svg)](LICENSE)
 ![Static Badge](https://img.shields.io/badge/build-passing-darkcyan)
 
@@ -11,7 +12,7 @@ A highly-minimal workflow tool for small teams (2–4 people) using Git. Anchor4
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Docsumentation] (https://docs.invoke0.indevs.in/anchor4git)
+- [Documentation](https://docs.invoke0.indevs.in/anchor4git)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
