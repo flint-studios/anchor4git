@@ -39,4 +39,4 @@ def save_cmd(
         next_step("running the same command again without --preview to actually use it.")
         return
 
-    git("commit", "-m", msg); ok(f'Saved: "{msg}"'); next_step("running 'a4g upload' when you are ready to publish.")
+    git("commit", "-m", msg); ok(f'Saved: "{msg}"'); next_step(f"running '{__title__} upload' when you are ready to publish.")

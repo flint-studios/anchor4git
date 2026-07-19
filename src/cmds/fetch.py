@@ -30,7 +30,8 @@ def fetch_cmd(
     # Create repo if missing
     if repo_missing:
         create_repo()
-        generate_config(origin=origin)
+    
+    generate_config(origin=origin, refresh=True)
 
 
     # ───── USER ASKED FOR PREVIEW ────────────────────────────────────────────────── #
@@ -73,7 +74,7 @@ def fetch_cmd(
     # ───── ORIGIN IS EMPTY ────────────────────────────────────────────────── #
     if origin_empty:
         ok("Origin repository is empty. Nothing to download. Start working.")
-        next_step("running 'a4g save' when you have changes, and 'a4g upload' to publish them.")
+        next_step(f"running '{__title__} save' when you have changes, and '{__title__} upload' to publish them.")
         
         return # to exit the command
 
@@ -93,7 +94,7 @@ def fetch_cmd(
         git("clean", "-fd")
         
         ok("Workspace replaced with the origin repository.")
-        next_step("running 'a4g save' after making local changes or 'a4g upload' if you want to publish.")
+        next_step(f"running '{__title__} save' after making local changes or '{__title__} upload' if you want to publish.")
         
         return
 
@@ -111,7 +112,7 @@ def fetch_cmd(
             git("commit", "--amend", "--no-edit", "--reset-author")
 
         ok("Workspace updated.")
-        next_step("running 'a4g upload' to publish your work after you have made changes.")
+        next_step(f"running '{__title__} upload' to publish your work after you have made changes.")
 
 
     except CalledProcessError:
@@ -126,5 +127,5 @@ def fetch_cmd(
         
         print()
         
-        warn("Resolve the conflicts, then run: 'a4g save' [HIGHLY IMPORTANT]")        
+        warn(f"Resolve the conflicts, then run: '{__title__} save' [HIGHLY IMPORTANT]")        
     

@@ -18,7 +18,7 @@ def goto_cmd(
     git_existance_safety()
     repo_existance_safety()
 
-    if not commit: die("Usage: a4g goto <commit> [--reset] [--stay]")
+    if not commit: die(f"Usage: {__title__} goto <commit> [--reset] [--stay]")
 
 
     # ───── RETURN TO HEAD ────────────────────────────────────────────────── #
@@ -46,7 +46,7 @@ def goto_cmd(
 
 
     if detached():
-        die("This command is unavailable with a save ID while you are not on HEAD. First use `a4g goto HEAD`.")
+        die(f"This command is unavailable with a save ID while you are not on HEAD. First use `{__title__} goto HEAD`.")
 
 
     # ───── RESOLVE FULL COMMIT ID AND PRINT INFO ────────────────────────────────────────────────── #
@@ -107,7 +107,7 @@ def goto_cmd(
         ok(f"Now at {commit}.")
 
         if stay:
-            info("Staying on this commit. Use 'a4g goto HEAD' to return.")
+            info(f"Staying on this commit. Use '{__title__} goto HEAD' to return.")
             return
 
         input("Press `Enter` to return to HEAD... ")

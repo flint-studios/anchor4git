@@ -50,7 +50,7 @@ def upload_cmd(
         git("push", "--force", origin, f"HEAD:refs/heads/{branch}")
         
         ok(f"Force-uploaded to {'remote' if 'main' else branch}.")
-        next_step("running 'a4g info' to verify the repository state.")
+        next_step(f"running '{__title__} info' to verify the repository state.")
         return
 
 
@@ -60,10 +60,10 @@ def upload_cmd(
     if (c := conflicts()):
         warn("Resolve conflicts before uploading:")
         for f in c: print(f"     • {f}")
-        return next_step("resolving all conflicts, running 'a4g save' and then try again.")
+        die(f"Resolve all conflicts, run '{__title__} save' and then try again.")
 
     # Block if behind remote.
-    if behind: die(f"You're behind by {behind} save(s). Run 'a4g fetch' and try again.")
+    if behind: die(f"You're behind by {behind} save(s). Run '{__title__} fetch' and try again.")
 
 
     # ───── PUSH SAFELY ────────────────────────────────────────────────── #
@@ -71,5 +71,5 @@ def upload_cmd(
 
     git("push", "--force", origin, f"HEAD:refs/heads/{branch}")
     
-    ok(f"Uploaded to {'remote' if 'main' else branch}.")
-    next_step("running 'a4g info' to verify the repository state.")
+    ok(f"Uploaded to {'origin' if 'main' else branch}.")
+    next_step(f"running '{__title__} info' to verify the repository state.")

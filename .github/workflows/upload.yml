@@ -1,4 +1,4 @@
-name: Manual Release
+name: Upload to PyPi & Releases
 
 on:
   workflow_dispatch:
@@ -36,6 +36,11 @@ on:
         type: boolean
         default: false
 
+      github_release_name:
+        description: 'Name for the Github Release'
+        required: false
+        type: string
+
       release_notes:
         description: 'Custom release notes (Markdown)'
         required: false
@@ -60,11 +65,6 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Update version in pyproject.toml
-        run: |
-          # Update version dynamically
-          uv version ${{ inputs.version }}
-
       - name: Build package
         run: uv build
 
@@ -87,7 +87,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ inputs.version }}
-          name: v${{ inputs.version }}
+          name: ${{ inputs.github_release_name }}
           body: ${{ inputs.release_notes }}
           files: |
             dist/*.whl

@@ -1,6 +1,6 @@
 # Anchor4Git
 
-[![License](https://img.shields.io/badge/license-FSPL-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-I0SL-blue.svg)](LICENSE)
 ![Static Badge](https://img.shields.io/badge/build-passing-darkcyan)
 
 A highly-minimal workflow tool for small teams (2–4 people) using Git. Anchor4Git wraps Git into a simple **Download → Edit → Upload** mental model so users never need to know Git commands.
@@ -11,6 +11,7 @@ A highly-minimal workflow tool for small teams (2–4 people) using Git. Anchor4
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Docsumentation] (https://docs.invoke0.indevs.in/anchor4git)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
@@ -32,7 +33,7 @@ pipx anchor4git
 
 ### For contributors:
    ```bash
-   git clone https://github.com/flint-studios/anchor4git.git
+   git clone https://github.com/invoke-zero/anchor4git.git
    cd anchor4git
    pip install -r requirements.txt
    python -m build
@@ -41,12 +42,12 @@ pipx anchor4git
 ## Usage
 
 ```
-a4g fetch       -  Download latest work from the remote
-a4g save        -  Save a snapshot of your workspace
-a4g upload      -  Publish your work to the remote
-a4g info        -  View project dashboard and history
-a4g goto        -  Navigate to a previous save
-a4g config      -  Open project configuration
+ag fetch       -  Download latest work from the remote
+ag save        -  Save a snapshot of your workspace
+ag upload      -  Publish your work to the remote
+ag info        -  View project dashboard and history
+ag goto        -  Navigate to a previous save
+ag config      -  Open project configuration
 ```
 
 All commands have short aliases (`f`, `s`, `u`, `i`, `g`, `c`).
@@ -74,8 +75,9 @@ Please read the [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## License
 
-This project is licensed under the FSPL-1.0 License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Invoke0 Standard License 1.0 **(I0SL-1.0)** License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
 - [Typer](https://typer.tiangolo.com/) - build great CLIs. Easy to code. Based on Python type hints.
+- [Rich](https://github.com/textualize/rich) - for rich text and beautiful formatting in the terminal.

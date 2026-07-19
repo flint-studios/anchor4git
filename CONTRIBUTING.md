@@ -22,7 +22,7 @@ If you find a bug, please create an issue with the following details:
 - Screenshots or logs, if applicable.
 - The version of the project you're using (if applicable).
 
-You can report bugs [here](https://github.com/flint-studios/anchor4git/issues).
+You can report bugs [here](https://github.com/invoke-zero/anchor4git/issues).
 
 
 ## Suggesting Features
@@ -51,7 +51,7 @@ We welcome pull requests for fixes and features! To contribute code:
 
 2. **Clone Your Fork**  
    ```bash
-   git clone https://github.com/flint-studios/anchor4git.git
+   git clone https://github.com/invoke-zero/anchor4git.git
    cd anchor4git
    ```
 
@@ -91,4 +91,4 @@ We welcome pull requests for fixes and features! To contribute code:
 Please review our [Code of Conduct](CODE_OF_CONDUCT.md) before contributing.
 
 
-Thank you for helping improve **[Anchor4Git](https://github.com/flint-studios/anchor4git)!** 🎉
+Thank you for helping improve **[Anchor4Git](https://github.com/invoke-zero/anchor4git)!** 🎉

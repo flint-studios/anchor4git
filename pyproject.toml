@@ -11,23 +11,25 @@ name = "anchor4git"
 version = "0.1.1"
 description = "A minimal git client CLI for remote repositories."
 readme = "README.md"
-requires-python = ">=3.9"
-license = { text = "FSPL-1.0" }
+requires-python = ">=3.11"
+license = { text = "I0SL-1.0" }
 
 authors = [
     { name = "Abhirup Hajra", email = "me@abhirup.co.in" },
 ]
 
 maintainers = [
-    { name = "Flint Studios", email = "contact@function0.qzz.io" },
+    { name = "Invoke0", email = "contact@invoke0.indevs.in" },
 ]
 
 keywords = ["anchor", "git", "workflow", "vcs", "anchor4git"]
 
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: System Administrators",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
 ]
 
 dependencies = [
@@ -36,15 +38,22 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = []
-docs = []
+dev = [
+    "pytest>=8.4.2"
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
 
 [project.scripts]
 anchor4git = "src:main"
-a4g = "src:main"
+ag = "src:main"
 
 [project.urls]
-Homepage = "https://github.com/flint-studios/anchor4git"
-Documentation = "https://github.com/flint-studios/anchor4git"
-Repository = "https://github.com/flint-studios/anchor4git"
-Issues = "https://github.com/flint-studios/anchor4git/issues"
+Homepage = "https://invoke0.indevs.in/product/anchor4git"
+Documentation = "https://docs.invoke0.indevs.in/anchor4git"
+Repository = "https://github.com/invoke-zero/anchor4git"
+Issues = "https://github.com/invoke-zero/anchor4git/issues"
+Changelog = "https://github.com/invoke-zero/anchor4git/releases"

@@ -56,7 +56,7 @@ def resolve_origin(url: str = "") -> str:
     """
 
     # Get URL
-    origin = url or cfg_read().get("origin_url") or die("Origin repository not initalised. Run `a4g fetch <url>`.")
+    origin = url or cfg_read().get("origin_url") or die("Origin repository not initalised. Run `{__title__} fetch <url>`.")
 
     u = urlparse(origin.strip()) # Is remote URL?
     
@@ -72,16 +72,24 @@ def create_repo(default_branch: str = "main") -> None:
     ok("Initialised new repository.")
 
 
-def generate_config(origin:str = "", default_branch: str = "main") -> None:
+def generate_config(origin:str = "", default_branch: str = "main", refresh: bool = False) -> None:
     cfg = cfg_read()
 
     # name & email: GIT DEFAULTS > PPRESET DEFAULT
-    cfg.update(
-            name = run(["git", "config", "user.name"], text=True, capture_output=True).stdout.strip() or DEFAULT_NAME,
-            email = run(["git", "config", "user.email"], text=True, capture_output=True).stdout.strip() or DEFAULT_EMAIL,
-            origin_url = origin,
-            default_branch= default_branch
-            )
+    if refresh:
+        cfg.update(
+                name = cfg.get("name", None) or run(["git", "config", "user.name"], text=True, capture_output=True).stdout.strip() or DEFAULT_NAME,
+                email = cfg.get("email", None) or run(["git", "config", "user.email"], text=True, capture_output=True).stdout.strip() or DEFAULT_EMAIL,
+                origin_url = origin,
+                default_branch= default_branch
+                )
+    else:
+        cfg.update(
+                name = run(["git", "config", "user.name"], text=True, capture_output=True).stdout.strip() or DEFAULT_NAME,
+                email = run(["git", "config", "user.email"], text=True, capture_output=True).stdout.strip() or DEFAULT_EMAIL,
+                origin_url = origin,
+                default_branch= default_branch
+                )
 
     cfg_write(cfg)
 
@@ -108,11 +116,12 @@ def git_existance_safety() -> None:
 
 
 def repo_existance_safety() -> None:
-    if not is_repo(): die("Local repository does not exist. Get started by running 'a4g fetch <url>' first.")
+    if not is_repo(): die(f"Local repository does not exist. Get started by running '{__title__} fetch <url>' first.")
 
 
 def detached_safety() -> None:
-    if is_repo() and detached(): die(f"This command is unavailable while actively using '{__title__} goto'.")
+    if is_repo():
+        if detached(): die(f"This command is unavailable while actively using '{__title__} goto'.")
 
 
 # ───── UI HELPERS ────────────────────────────────────────────────── #
@@ -150,7 +159,7 @@ def human_sync(ahead: int, behind: int) -> str:
 
     if ahead == 0 and behind == 0: return "In sync."
     if ahead > 0 and behind == 0: return f"You have {ahead} unsynced save(s) on your end."
-    if behind > 0 and ahead == 0: return f"You're behind by {behind} save(s). Run 'a4g fetch'"
+    if behind > 0 and ahead == 0: return f"You're behind by {behind} save(s). Run '{__title__} fetch'"
     return f"{ahead} unsynced save(s) / behind by {behind} save(s)"
 
 
